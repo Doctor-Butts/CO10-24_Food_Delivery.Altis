@@ -108,5 +108,3 @@ removeHeadgear _this;
 			removeHeadgear _this;
 		};
 	};
-	
-	_this addItemToUniform "ACE_epinephrine";
