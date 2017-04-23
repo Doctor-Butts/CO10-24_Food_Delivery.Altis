@@ -1,0 +1,151 @@
+author="Doctor Butts";
+gameType = Support;
+OnLoadName = "CO4-24 Food Delivery";
+OnLoadMission = "Deliver food to the citizens of Altis";
+respawn = 5;
+onLoadMissionTime = 1;
+loadScreen = "media\fooddelivery.jpg";
+overviewPicture = "media\fooddelivery.jpg";
+//overviewText = "Deliver food, protect truck";
+enableDebugConsole = 1;
+saving = 0;
+
+class Header
+{
+	minPlayers = 1; //min # of players the mission supports
+	maxPlayers = 24; //max # of players the mission supports
+};
+class Params
+{
+	class TimeOfDay
+	{
+	title = "Time of Day";
+	texts[] = {"Moonrise","Full Moon","Dawn","Sunrise","Morning","Noon","Afternoon","Sunset","Dusk"};
+	values[] = {0.5,3,5,6,9,12,15,18,19};
+	default = 9;
+	function = "BIS_fnc_paramDaytime"; // (Optional) Function called when player joins, selected value is passed as an argument
+	isGlobal = 1; // (Optional) 1 to execute script / function locally for every player who joins, 0 to do it only on server
+	};
+};
+
+class CfgSounds
+{
+	sounds[] = {};
+	class oosafezone
+	{
+		// how the sound is referred to in the editor (e.g. trigger effects)
+		name = "left_safe_zone";
+		// filename, volume, pitch, distance
+		sound[] = {"media\command_on.wav", 2, 1, 100};
+		// subtitle delay in seconds, subtitle text 
+		titles[] = {0,""};
+	};
+	class offroad1
+	{
+		name = "off_road_1";
+		sound[] = {"media\Error_Message.wav", 1, 1, 100};
+		titles[] = {0,""};
+	};
+	class onroad1
+	{
+		name = "on_road_1";
+		sound[] = {"media\health_patch.wav", 1, 1, 100};
+		titles[] = {0,""};
+	};
+};
+
+/* class CfgNotifications
+{
+	class Off_Road
+	{
+		title = "Warning! Off Road!"; // Tile displayed as text on black background. Filled by arguments.
+		iconPicture = "\A3\ui_f\data\IGUI\Cfg\simpleTasks\types\danger_ca.paa"; // Small icon displayed in left part. Colored by "color", filled by arguments.
+		//iconText = ""; // Short text displayed over the icon. Colored by "color", filled by arguments.
+		description = "%2"; // Brief description displayed as structured text. Colored by "color", filled by arguments.
+		color[] = {1,0.2,0.2,1}; // Icon and text color
+		duration = 3; // How many seconds will the notification be displayed
+		priority = 8; // Priority; higher number = more important; tasks in queue are selected by priority
+		//difficulty[] = {}; // Required difficulty settings. All listed difficulties has to be enabled
+		sound = "offroad1";
+	};
+	class On_Road
+	{
+		title = "On Road";
+		iconPicture = "\A3\ui_f\data\IGUI\Cfg\simpleTasks\types\truck_ca.paa";
+		description = "%2";
+		color[] = {0,1,0,1};
+		duration = 3;
+		priority = 5;
+
+		sound = "onroad1";
+	};
+	class Not_Safe
+	{
+		title = "ATTENTION";
+		iconPicture = "\A3\ui_f\data\IGUI\Cfg\simpleTasks\types\danger_ca.paa";
+		description = "%2";
+		color[] = {0,1,1,1};
+		duration = 10;
+		priority = 5;
+		sound = "oosafezone";
+	};
+	class In_City_Trigger
+	{
+		title = "Food Truck in Delivery Zone";
+		iconPicture = "\A3\ui_f\data\IGUI\Cfg\simpleTasks\types\wait_ca.paa";
+		description = "Truck must stay here for 3 minutes to complete task.";
+		color[] = {1,1,0,1};
+		duration = 5;
+		priority = 5;
+		sound = "onroad1";
+	};
+	class Out_City_Trigger
+	{
+		title = "Food Truck not in Delivery Zone";
+		iconPicture = "\A3\ui_f\data\IGUI\Cfg\simpleTasks\types\map_ca.paa";
+		description = "Truck has left delivery area, please return and wait 3 minutes.";
+		color[] = {1,0.5,0,1};
+		duration = 5;
+		priority = 5;
+		sound = "offroad1";
+	};
+}; */
+
+class CfgDebriefing
+{  
+	class End1
+	{
+		title = "Mission Failure";
+		subtitle = "Food Truck Destroyed";
+		description = "You were unable to prevent the food truck from being destroyed before completing deliveries.";
+		pictureBackground = "media\deadfood.jpg";
+	};
+	class End2
+	{	
+		title = "Mission Failure";
+		subtitle = "Food truck was lost";
+		description = "Food truck went off course and was lost forever.";
+		pictureBackground = "media\losttruck.jpg";
+	};
+	class End3
+	{
+		title = "Mission Failure";
+		subtitle = "Excessive Civilian Casualties";
+		description = "Either you murdered a bunch of civilians in cold blood, or you were too inept to protect them from getting killed.";
+		pictureBackground = "media\civsdead.jpg";
+	};
+	class End4
+	{
+		title = "Mission Failure";
+		subtitle = "Everyone is Dead";
+		description = "None of your soldiers survived the mission.";
+		pictureBackground = "media\alldead.jpg";
+	};
+		class End5
+	{
+		title = "Mission Success";
+		subtitle = "You did it!";
+		description = "Everyone is happy.";
+		pictureBackground = "media\youwin.jpg";
+	};
+};
