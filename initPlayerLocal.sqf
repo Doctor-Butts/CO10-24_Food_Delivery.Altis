@@ -1,4 +1,4 @@
-
+//waitUntil {!(isNull player)};
 player removeItemFromUniform "rhsusf_ANPVS_14";
 player removeItemFromVest "rhsusf_ANPVS_14";
 player removeItemFromUniform "rhsusf_patrolcap_ocp";
