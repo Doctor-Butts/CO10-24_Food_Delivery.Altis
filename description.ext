@@ -1,12 +1,12 @@
 author="Doctor Butts";
 gameType = Support;
-OnLoadName = "CO4-24 Food Delivery";
-OnLoadMission = "Deliver food to the citizens of Altis";
+//OnLoadName = "CO4-24 Food Delivery";
+//OnLoadMission = "Deliver food to the citizens of Altis";
 respawn = 5;
 onLoadMissionTime = 1;
-loadScreen = "media\fooddelivery.jpg";
-overviewPicture = "media\fooddelivery.jpg";
-//overviewText = "Deliver food, protect truck";
+loadScreen = fooddeliverysplash.paa;
+overviewPicture = fooddeliverysplash.paa;
+overviewText = "Deliver food, protect truck";
 enableDebugConsole = 1;
 saving = 0;
 
